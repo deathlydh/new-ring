@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4102876718664642487}
   - component: {fileID: 6701599110887894567}
-  - component: {fileID: -800307679390830957}
+  - component: {fileID: 3583597833310024073}
   m_Layer: 0
   m_Name: gun
   m_TagString: Untagged
@@ -61,7 +61,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-800307679390830957
+--- !u!114 &3583597833310024073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,6 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsShoot: 0
   point: {fileID: 4087012038158464805, guid: 2c6e4eaee468fd643a82a669494388c6, type: 3}
+  audioSource: {fileID: 0}
 --- !u!4 &9003387036071776358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72bd8bc7e87b3cf4997cb8201527dd83,
