@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
+    [SerializeField] private GameObject gameOverPanel;
 
     void Start()
     {
@@ -22,6 +23,19 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void Die()
     {
         Debug.Log("Player died!");
-        // «десь можно добавить логику перезапуска уровн€
+        ShowGameOverPanel();  // ѕоказываем панель Game Over
+        // «десь можно добавить логику перезапуска уровн€, если нужно.
+    }
+
+    private void ShowGameOverPanel()
+    {
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true); // јктивируем панель Game Over
+        }
+        else
+        {
+            Debug.LogWarning("Game Over Panel is not assigned!");
+        }
     }
 }
