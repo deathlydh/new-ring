@@ -31,11 +31,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         if (gameOverPanel != null)
         {
-            gameOverPanel.SetActive(true); // Активируем панель Game Over
-        }
-        else
-        {
-            Debug.LogWarning("Game Over Panel is not assigned!");
+            gameOverPanel.SetActive(true);
+            DeathTimer deathTimer = gameOverPanel.GetComponent<DeathTimer>();
+            if (deathTimer != null)
+            {
+                deathTimer.StartCountdown();
+            }
         }
     }
 }

@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class UIManagers : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private ButtonActionHandler buttonActionHandler;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        // Устанавливаем действие для кнопки
+        ReloadSceneAction reloadAction = new ReloadSceneAction();
+        buttonActionHandler.SetAction(reloadAction);
     }
 }
