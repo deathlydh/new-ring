@@ -20,6 +20,7 @@ public class PistolShoot : MonoBehaviour
 
     [SerializeField] private ParticleSystem ps;
     [SerializeField] private ParticleSystem postAtcps;
+    [SerializeField] private ParticleSystem atcWall;
 
     void Start()
     {
@@ -71,6 +72,10 @@ public class PistolShoot : MonoBehaviour
             {
                 damageable.TakeDamage(damage);
                 Instantiate(atcPs, hit.point, Quaternion.LookRotation(hit.normal));
+            }
+            else
+            {
+                Instantiate(atcWall, hit.point, Quaternion.LookRotation(hit.normal));
             }
             audioSource.Play();
         }
