@@ -29,24 +29,11 @@ public class PistolShoot : MonoBehaviour
     }
 
     void Update()
-    {/*
-        var inputDevices = new List<InputDevice>();
-        InputDevices.GetDevices(inputDevices);
-
-        foreach (var device in inputDevices)
+    {
+        if (!interactable.isSelected)
         {
-            if (device.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerValue) && triggerValue && interactable.isSelected)
-            {
-                Shoot();
-                animator.SetBool("shoot", true);
-                isShoot = true;
-            }
-            else
-            {
-                animator.SetBool("shoot", false);
-                isShoot = false;
-            }
-        }*/
+            animator.SetBool("shoot", false);
+        }
     }
 
     public void OnShoot()
