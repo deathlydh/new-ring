@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6787082275013533806}
   - component: {fileID: 5095792163437490990}
   - component: {fileID: 898763698098456163}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: tpPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,12 +98,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 898763698098456163}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2147483653
   m_DistanceCalculationMode: 1
   m_SelectMode: 1
   m_FocusMode: 1

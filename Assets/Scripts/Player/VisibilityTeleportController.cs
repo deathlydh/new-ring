@@ -49,6 +49,6 @@ public class VisibilityTeleportController : MonoBehaviour
         rAnimator.SetFloat("triger", r1);
         rAnimator.SetFloat("curoc", r2);
         
-        lController.SetActive(!(XRleft.selectTarget!=null));
+        //lController.SetActive(!(XRleft.selectTarget!=null));
     }
 }
