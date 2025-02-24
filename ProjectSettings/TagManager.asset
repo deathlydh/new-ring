@@ -8,6 +8,7 @@ TagManager:
   - Left hand
   - Right hand
   - Enemy
+  - Magazine
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - player
   - interacteble
   - floor
-  - 
-  - 
+  - gun
+  - interacteble2
   - 
   - 
   - 

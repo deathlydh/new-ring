@@ -27,7 +27,6 @@ public class PistolShoot : MonoBehaviour
         animator = GetComponent<Animator>();
         interactable = GetComponentInParent<XRGrabInteractable>();
     }
-
     void Update()
     {
         if (!interactable.isSelected)
@@ -35,14 +34,12 @@ public class PistolShoot : MonoBehaviour
             animator.SetBool("shoot", false);
         }
     }
-
     public void OnShoot()
     {
         Debug.Log("shoot");
         animator.SetBool("shoot", true);
     }
-
-    private void endShoot()
+    public void endShoot()
     {
         animator.SetBool("shoot", false);
         postAtcps.Play();
