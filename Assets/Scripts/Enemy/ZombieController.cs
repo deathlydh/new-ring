@@ -18,7 +18,7 @@ public class ZombieController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        player = GameObject.FindGameObjectWithTag("Attack object")?.transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         zombieHealth = GetComponent<ZombieHealth>();
         zombieAttack = GetComponent<ZombieAttack>();

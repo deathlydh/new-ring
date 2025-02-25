@@ -7,16 +7,19 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float maxHealth = 100f;
     private float currentHealth;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private HealthBar HealthBar;
 
     void Start()
     {
         currentHealth = maxHealth;
+        HealthBar.UpdateHealth(currentHealth, maxHealth);
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        Debug.Log($"Player Health: {currentHealth}");
+        HealthBar.UpdateHealth(currentHealth, maxHealth);
+        //Debug.Log($"Player Health: {currentHealth}");
         if (currentHealth <= 0) Die();
     }
 
