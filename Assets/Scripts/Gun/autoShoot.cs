@@ -63,11 +63,15 @@ public class autoShoot : MonoBehaviour
     {
         Debug.Log("shoot");
         animator.SetBool("shoot", true);
+        if (Ammo != null)
+            Ammo.gameObject.GetComponentInChildren<Animator>().SetBool("shoot", true);
     }
 
     public void OnDeShoot()
     {
         animator.SetBool("shoot", false);
+        if (Ammo != null)
+            Ammo.gameObject.GetComponentInChildren<Animator>().SetBool("shoot", false);
     }
 
     private void endShoot()
@@ -82,12 +86,6 @@ public class autoShoot : MonoBehaviour
             return;
         Ammo = other.gameObject.GetComponent<AmmoController>();
         Ammo.Connect(this.gameObject);
-        //Ammo.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        //rb = Ammo.gameObject.GetComponent<Rigidbody>();
-        //other.gameObject.transform.SetParent(this.transform.parent, false);
-        //other.gameObject.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-        //other.gameObject.transform.localPosition = Ammopoint.transform.localPosition;
-        // other.gameObject.transform.localRotation = Ammopoint.transform.localRotation;
     }
 
     private void Shoot()
@@ -95,6 +93,8 @@ public class autoShoot : MonoBehaviour
         if (!Ammo.IsCanShoot()) 
         {
             animator.SetBool("shoot", false);
+            if (Ammo != null)
+                Ammo.gameObject.GetComponentInChildren<Animator>().SetBool("shoot", false);
             return; 
         }
 
