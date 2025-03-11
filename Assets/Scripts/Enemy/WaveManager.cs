@@ -5,13 +5,14 @@ using System;
 
 public class WaveManager : MonoBehaviour
 {
-    [SerializeField] private WaveConfig[] waveConfigs;  
+    [SerializeField] private WaveConfig[] waveConfigs;
     [SerializeField] private EnemySpawner enemySpawner;
-    [SerializeField] private float waveInterval = 5f; 
+    [SerializeField] private float waveInterval = 5f;
+    [SerializeField] private float initialDelay = 15f; // Добавляем поле для начальной задержки
 
     public event Action<int, int> OnWaveUpdated;
 
-    private int currentWaveIndex = 0; 
+    private int currentWaveIndex = 0;
     private int enemiesRemaining = 0;
 
     private void Start()
@@ -22,23 +23,19 @@ public class WaveManager : MonoBehaviour
     private IEnumerator StartNextWave()
     {
         
+        yield return new WaitForSeconds(initialDelay);
+
         while (currentWaveIndex < waveConfigs.Length)
         {
-            
             WaveConfig currentWaveConfig = waveConfigs[currentWaveIndex];
             enemiesRemaining = currentWaveConfig.enemiesToSpawn;
             OnWaveUpdated?.Invoke(enemiesRemaining, currentWaveIndex + 1);
 
-            
             enemySpawner.SpawnWave(currentWaveConfig, OnEnemyDestroyed);
 
-            // Ждём, пока все враги будут уничтожены
             yield return new WaitUntil(() => enemiesRemaining <= 0);
-
-            // После завершения волны, делаем паузу перед началом новой
             yield return new WaitForSeconds(waveInterval);
 
-            // Переходим к следующей волне
             currentWaveIndex++;
         }
     }
@@ -46,8 +43,6 @@ public class WaveManager : MonoBehaviour
     private void OnEnemyDestroyed()
     {
         enemiesRemaining--;
-        OnWaveUpdated?.Invoke(enemiesRemaining, currentWaveIndex);
-
-        
+        OnWaveUpdated?.Invoke(enemiesRemaining, currentWaveIndex + 1);
     }
 }
